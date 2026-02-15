@@ -1,6 +1,8 @@
 
 const container = document.querySelector('.grid-container');
-const selectionBtn = document.querySelector('.grid-selection');
+const selectionBtn = document.getElementById('grid-size');
+const colorBtn = document.getElementById('color-change');
+const cleanBtn = document.getElementById('reset');
 
 let gridSize = 16;
 let isDrawing = false;
@@ -15,6 +17,16 @@ document.addEventListener('mouseup', () => {
 });
 
 
+colorBtn.addEventListener('click', () => {
+  
+});
+
+
+cleanBtn.addEventListener('click', () => {
+  createGrid(gridSize);
+});
+
+
 selectionBtn.addEventListener('click', () => {
   const userInput = prompt('Insert grid size (max 100)')
 
@@ -25,6 +37,7 @@ selectionBtn.addEventListener('click', () => {
   const newSize = +userInput;
 
   if (newSize >= 1 && newSize <= 100) {
+    gridSize = newSize;
     createGrid(newSize);
   } else {
     alert("Number not valid! Only number from 1 to 100.")
