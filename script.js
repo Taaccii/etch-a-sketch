@@ -103,7 +103,7 @@ function createGrid(size) {
     const square = document.createElement('div');
     square.classList.add('grid-square');
 
-    const squareSize = 960 / size;
+    const squareSize = 900 / size;
     square.style.width = squareSize + 'px';
     square.style.height = squareSize + 'px';
     square.dataset.opacity = 0;
