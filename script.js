@@ -112,9 +112,24 @@ function createGrid(size) {
     square.addEventListener('mouseenter', handleMouseEnter);
     square.addEventListener('mouseleave', handleMouseLeave);
 
-    square.addEventListener('mousedown', () => {
+    // Left and right click
+    square.addEventListener('mousedown', (event) => {
+      // Right click = erase
+      if (event.button === 2) {
+        square.style.backgroundColor = 'white';
+        square.style.opacity = 1;
+        square.dataset.opacity = 0;
+        square.dataset.colored = '';
+        return;
+      }
+
+      // Left click = draw
       if (!square.dataset.colored) {
-        square.style.backgroundColor = 'hsl(270, 5%, 17%)';
+        if (rbgMode) {
+          square.style.backgroundColor = getRandomColor();
+        } else {
+            square.style.backgroundColor = 'hsl(270, 5%, 17%)';
+        }
         square.dataset.colored = 'true';
       }
 
